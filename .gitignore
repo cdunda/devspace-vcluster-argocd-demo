@@ -1,5 +1,6 @@
 /creds
 /kubeconfig.yaml
+.secrets
 
 # Ignore DevSpace cache and log folder
 .devspace/

@@ -37,13 +37,13 @@ jobs:
       run: |
         sleep 1
         cat production/devops-toolkit.yaml | sed -e "s@- ${{ secrets.DOCKERHUB_USERNAME }}/devops-toolkit:.*@- ${{ secrets.DOCKERHUB_USERNAME }}/devops-toolkit:${{ github.sha }}@g" | tee production/devops-toolkit.yaml
-        git config --global user.email "${{ secrets.GH_ORG }}@farcic.com"
-        git config --global user.name "${{ secrets.GH_ORG }}"
+        git config --global user.email "s33dunda@gmail.com"
+        git config --global user.name "s33dunda"
         git add .
         git commit -m "Promoting devops-toolkit ${{ github.sha }}"
     - name: Push prod
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.GH_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         repository: ${{ secrets.GH_ORG }}/devspace-vcluster-argocd-prod
  
